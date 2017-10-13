@@ -8,3 +8,7 @@ Rake::TestTask.new(:test) do |t|
 end
 
 task :default => :test
+
+require "standalone_migrations"
+StandaloneMigrations::Tasks.load_tasks
+

@@ -9,8 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Mark McDonald"]
   spec.email         = ["mark.mcdonald.ga@gmail.com"]
 
-  spec.summary       = 'Explains why a row was not filtered out by a relation'
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = 'Explains why a row was excluded by an Active Record relation'
+  spec.description   = 'Re-runs select queries with different combinations of where clauses' \
+                       'to determine which clause is filtering out a specific record.'
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
@@ -29,6 +30,10 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.add_development_dependency "activerecord", '~> 4.2.10'
+  spec.add_development_dependency "sqlite3"
+  spec.add_development_dependency "standalone_migrations", '~> 4.0.5'
 
   spec.add_development_dependency "bundler", "~> 1.16.a"
   spec.add_development_dependency "rake", "~> 10.0"
